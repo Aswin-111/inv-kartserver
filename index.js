@@ -17,10 +17,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(express.json());
+// app.use("/", (req, res) => {
+//   return res.send("Hello World!");
+// });
 
 // Serve static files from the uploads directory
 app.use(

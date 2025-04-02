@@ -86,7 +86,15 @@ const uploadErrorHandler = (err, req, res, next) => {
 router
   .route("/category")
   .get(getCategory)
-  .post(upload.single("categoryImage"), uploadErrorHandler, createCategory)
+  .post(
+    upload.single("categoryImage"),
+    (req, res, next) => {
+      console.log("done");
+      next();
+    },
+    uploadErrorHandler,
+    createCategory
+  )
   .delete(deleteCategory)
   .patch(updateCategory); // Use PATCH for updates
 
