@@ -21,16 +21,16 @@ const port = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(express.json());
-// app.use("/", (req, res) => {
-//   return res.send("Hello World!");
-// });
+app.get("/", (req, res) => {
+  return res.send("Hello World!");
+});
 
 // Serve static files from the uploads directory
 app.use(
   "/category",
   express.static(path.join(__dirname, "uploads/categories"))
 );
-app.use("/products", express.static(path.join(__dirname, "uploads/products")));
+app.use("/product", express.static(path.join(__dirname, "uploads/products")));
 // app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/users", userRoutes);
